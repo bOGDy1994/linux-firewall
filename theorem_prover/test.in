@@ -1,0 +1,10 @@
+set(quiet).
+clear(print_proofs).
+formulas(sos).
+ rule(19216811,17,80) = 1.
+ rule(195,17,80) = 1.
+end_of_list.
+
+formulas(goals).
+  rule(19216811,17,80) = 1.
+end_of_list.

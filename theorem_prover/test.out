@@ -1,0 +1,99 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2009-11A, November 2009.
+Process 7531 was started by bogdy on abp,
+Thu Dec 17 10:48:35 2015
+The command was "./prover9 -f test.in".
+============================== end of head ===========================
+
+============================== INPUT =================================
+
+% Reading from file test.in
+
+set(quiet).
+clear(print_proofs).
+
+formulas(sos).
+rule(192,17,80) = 1.
+rule(195,17,80) = 1.
+end_of_list.
+
+formulas(goals).
+rule(192,17,80) = 1.
+rule(195,17,80) = 1.
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+1 rule(192,17,80) = 1 # label(non_clause) # label(goal).  [goal].
+2 rule(195,17,80) = 1 # label(non_clause) # label(goal).  [goal].
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+% Clauses before input processing:
+
+formulas(usable).
+end_of_list.
+
+formulas(sos).
+rule(192,17,80) = 1.  [assumption].
+rule(195,17,80) = 1.  [assumption].
+rule(192,17,80) != 1.  [deny(1)].
+rule(195,17,80) != 1.  [deny(2)].
+end_of_list.
+
+formulas(demodulators).
+end_of_list.
+
+============================== PREDICATE ELIMINATION =================
+
+============================== end predicate elimination =============
+
+Auto_denials:
+  % assign(max_proofs, 2).  % (Horn set with more than one neg. clause)
+
+WARNING, because some of the denials share constants,
+some of the denials or their descendents may be subsumed,
+preventing the target number of proofs from being found.
+The shared constants are:  1, 80, 17.
+
+Term ordering decisions:
+
+           3 rule(192,17,80) = 1.  [assumption].
+kept:      4 1 = rule(192,17,80).  [copy(3),flip(a)].
+           5 rule(195,17,80) = 1.  [assumption].
+kept:      6 rule(195,17,80) = rule(192,17,80).  [copy(5),rewrite([4(5)])].
+           7 rule(192,17,80) != 1.  [deny(1)].
+
+-------- Proof 1 at (0.01 + 0.00 seconds) 
+           9 rule(195,17,80) != 1.  [deny(2)].
+
+-------- Proof 2 at (0.01 + 0.00 seconds) 
+
+============================== STATISTICS ============================
+
+Given=0. Generated=4. Kept=2. proofs=2.
+Usable=0. Sos=0. Demods=2. Limbo=2, Disabled=4. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=0. Back_subsumed=0.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=2 (0 lex), Back_demodulated=0. Back_unit_deleted=0.
+Demod_attempts=43. Demod_rewrites=4.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=0. Nonunit_bsub_feature_tests=0.
+Megabytes=0.03.
+User_CPU=0.01, System_CPU=0.00, Wall_clock=0.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+THEOREM PROVED
+
+Exiting with 2 proofs.
+
+Process 7531 exit (max_proofs) Thu Dec 17 10:48:35 2015

@@ -1,0 +1,10 @@
+set(quiet).
+clear(print_proofs).
+formulas(sos).
+ rule2(1932312521, 17) = 0.
+ rule3(2131541241, 17, 51779) = 1.
+end_of_list.
+
+formulas(goals).
+ rule3(2131541241, 17, 51779) = 1.
+end_of_list.

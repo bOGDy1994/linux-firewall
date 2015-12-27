@@ -1,0 +1,87 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2009-11A, November 2009.
+Process 9673 was started by root on abp,
+Thu Dec 17 15:13:24 2015
+The command was "./prover9 -f verify.in".
+============================== end of head ===========================
+
+============================== INPUT =================================
+
+% Reading from file verify.in
+
+set(quiet).
+clear(print_proofs).
+
+formulas(sos).
+rule2(173194116215,6) = 1.
+rule3(725214115,6,17025) = 1.
+end_of_list.
+
+formulas(goals).
+rule3(725214115,6,17025) = 1.
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+1 rule3(725214115,6,17025) = 1 # label(non_clause) # label(goal).  [goal].
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+% Clauses before input processing:
+
+formulas(usable).
+end_of_list.
+
+formulas(sos).
+rule2(173194116215,6) = 1.  [assumption].
+rule3(725214115,6,17025) = 1.  [assumption].
+rule3(725214115,6,17025) != 1.  [deny(1)].
+end_of_list.
+
+formulas(demodulators).
+end_of_list.
+
+============================== PREDICATE ELIMINATION =================
+
+============================== end predicate elimination =============
+
+Auto_denials:  (no changes).
+
+Term ordering decisions:
+
+           2 rule2(173194116215,6) = 1.  [assumption].
+kept:      3 1 = rule2(173194116215,6).  [copy(2),flip(a)].
+           4 rule3(725214115,6,17025) = 1.  [assumption].
+kept:      5 rule3(725214115,6,17025) = rule2(173194116215,6).  [copy(4),rewrite([3(5)])].
+           6 rule3(725214115,6,17025) != 1.  [deny(1)].
+
+-------- Proof 1 at (0.01 + 0.00 seconds) 
+
+============================== STATISTICS ============================
+
+Given=0. Generated=3. Kept=2. proofs=1.
+Usable=0. Sos=0. Demods=2. Limbo=2, Disabled=3. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=0. Back_subsumed=0.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=2 (0 lex), Back_demodulated=0. Back_unit_deleted=0.
+Demod_attempts=29. Demod_rewrites=3.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=0. Nonunit_bsub_feature_tests=0.
+Megabytes=0.02.
+User_CPU=0.01, System_CPU=0.00, Wall_clock=0.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+THEOREM PROVED
+
+Exiting with 1 proof.
+
+Process 9673 exit (max_proofs) Thu Dec 17 15:13:24 2015

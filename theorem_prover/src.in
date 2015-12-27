@@ -1,0 +1,16 @@
+formulas(assumptions).
+  1*x = x.                            % identity
+  x*y = y*x.                          % commutativity
+  x*(y*z) = (x*y)*z.                  % associativity
+  ( x*y = x*z ) -> y = z.             % cancellation (0 is not allowed, so x!=0).
+  %
+  % Now let's define divides(x,y): x divides y.
+  %   Example: divides(2,6) is true b/c 2*3=6.
+  %
+  divides(x,y) <-> (exists z x*z = y).
+  divides(2,x*x) -> divides(2,x).     % If 2 divides x*x, it divides x.
+  a*a = 2*(b*b).                      % a/b = sqrt(2), so a^2 = 2 * b^2.
+  (x != 1) ->  -(divides(x,a) &
+                 divides(x,b)).       % a/b is in lowest terms
+  2 != 1.                             % Original author almost forgot this.
+end_of_list.
